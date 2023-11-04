@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UC SHOP</title>
+    <link rel="stylesheet" type="text/css" href="form.css">
+</head>
+    <div class="form">
+        <div class="title" id="title">Sotib Olish</div>
+        <div class="subtitle" id="subtitle">Keling, shaklni to'ldirib chiqamiz!</div>
+        <div class="input-container ic1">
+          <input id="user_name" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="user_name" class="placeholder">To'liq Ism</label>
+        </div>
+        <div class="input-container ic2">
+          <input id="pubgid" class="input" type="text" placeholder=" " />
+          <div class="cut"></div>
+          <label for="pubgid" class="placeholder">Pubg ID</label>
+        </div>
+        <div class="input-container ic3">
+          <input id="number" class="input" type="text" placeholder=" ">
+          <div class="cut"></div>
+          <label for="number" class="placeholder">Raqam</label>
+        </div>
+        <button type="text" class="submit" id="submit">YUBORISH</button>
+      </div>
+          <div class="cut cut-short"></div>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    let tg = window.Telegram.WebApp;
+		let submit = document.getElementById("submit")
+
+        submit.addEventListener("click", () => {
+            document.getElementById("user_name").value = tg.initDataUnsafe.first_name +  " " + tg.initDataUnsafe.last_name
+            if(user_name.length < 3) {
+              document.getElementById("subtitle").innerText = 'Ismda Xatolik Bor!';
+              return;
+            }
+            if(pubgid.length < 5) {
+              document.getElementById("subtitle").innerText = 'Pubg ID Xato!';
+              return;
+            }
+            if(number.length < 5) {
+              document.getElementById("number").innerText = 'Raqamda Xato Bor!';
+              return;
+            }
+            let data = {
+              user_name: name,
+              pubgid: pmid,
+              number: phone
+            }
+
+            tg.sendData(JSON.stringify(data));
+
+            tg.close();
+        });
+
+        window.onload = function () {
+          let pubgid = document.getElementById("pubgid").value;
+          let number = document.getElementById("user_phone").value;
+          let user_name = document.getElementById("user_name").value;
+        }
+  </script>
+</body>
+</html>

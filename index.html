@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UC SHOP</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section class="products">
+		<h2>UC Do'koni</h2>
+		<div class="all-products">
+			<div class="product">
+				<img src="https://i0.wp.com/martsbd.com/wp-content/uploads/2023/04/PUBG-Mobile-UC-Station.png?fit=256%2C256&ssl=1">
+				<div class="product-info">
+					<h4 class="product-title" id="ottiz">30 UC
+					</h4>
+					<p class="product-price">$0.50 - 6.500 So'm</p>
+					<a class="productbtn" id="btn1" href="form.html">Sotib Olish</a>
+
+				</div>
+			</div>
+			<div class="product">
+				<img src="https://code4game.ru/upload/iblock/6c0/z7y17dsmlrhzham3o336in3rtb808939.png">
+				<div class="product-info">
+					<h4 class="product-title" id="oltmush">60 UC
+					</h4>
+					<p class="product-price">$1 - 12.500 So'm</p>
+					<a class="productbtn" id="btn2" href="form.html">Sotib Olish</a>
+
+				</div>
+			</div>
+			<div class="product">
+				<img src="https://cdn.midasbuy.com/images/apps/pubgm/1599549775068xtoGCDwY.png">
+				<div class="product-info">
+					<h4 class="product-title" id="uchyuz">300 UC
+					</h4>
+					<p class="product-price">$5 - 62.000 So'm</p>
+					<a class="productbtn" id="btn3" href="form.html">Sotib Olish</a>
+
+				</div>
+			</div>
+			<div class="product">
+				<img src="https://cdn.midasbuy.com/images/apps/pubgm/1599549775068xtoGCDwY.png">
+				<div class="product-info">
+					<h4 class="product-title" id="oltiyuz">600 UC
+						</h4>
+					<p class="product-price">$10 - 123.000 So'm</p>
+					<a class="productbtn" id="btn4" href="form.html">Sotib Olish</a>
+
+				</div>
+			</div>
+		</div>
+	</section>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script>
+		let tg = window.Telegram.WebApp;
+		let productbtn = document.getElementById("productbtn")
+        let order = document.getElementById("order")
+		tg.expand();
+
+		btn1.addEventListener("click", () => {
+			let ucdataottiz = {
+              ottiz: ottizuc
+            }
+			tg.sendData(JSON.stringify(ucdataottiz));
+		});
+
+		btn2.addEventListener("click", () => {
+			let ucdataoltmush = {
+              oltmush: oltmushuc
+            }
+			tg.sendData(JSON.stringify(ucdataoltmush));
+		});
+
+		btn3.addEventListener("click", () => {
+			let ucdatauchyuz = {
+              uchyuz: uchyuzuc
+            }
+			tg.sendData(JSON.stringify(ucdatauchyuz));
+		});
+
+		btn4.addEventListener("click", () => {
+			let ucdataoltiyuz = {
+              oltiyuz: oltiyuzuc
+            }
+			tg.sendData(JSON.stringify(ucdataoltiyuz));
+		});
+
+        productbtn.addEventListener("click", () => {
+            document.getElementById("products").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.first_name +  " " + tg.initDataUnsafe.last_name
+        });
+
+        order.addEventListener("click", () => {
+            tg.close();
+        });
+	</script>
+</body>
+</html>
